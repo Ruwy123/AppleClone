@@ -1,9 +1,13 @@
 import clsx from "clsx";
 import useMacbookStore from "../store/index.js";
 import { Canvas } from "@react-three/fiber";
-import { Box } from "@react-three/drei";
+
+import { useMediaQuery } from "react-responsive";
+import StudioLights from "./three/StudioLights.jsx";
+import ModelSwitcher from "./three/ModelSwitcher.jsx";
 
 const ProductViewer = () => {
+  const isMobile = useMediaQuery({ query: "(max-width:1024px)" });
   const { color, scale, setColor, setScale } = useMacbookStore();
   return (
     <section className=" container relative min-h-[93vh] mx-auto px-5 2xl:px-0 mt-40">
@@ -11,9 +15,9 @@ const ProductViewer = () => {
         Take a closer look
       </h2>
       {/* the colors selectores */}
-      <div className=" absolute z-50 bottom-40 lg:bottom-40 2xl:bottom-52 left-1/2 -translate-x-1/2">
-        <p className="text-xs text-white bg-black/20 px-2 py-1 rounded-lg">
-          MacbookPro {scale} in {color}
+      <div className=" absolute z-50 bottom-10 lg2xl:bottom-52 left-1/2 -translate-x-1/2">
+        <p className="text-xs text-white bg-black/20 px-2 py-1 rounded-lg ">
+          Macbook Pro | Available in 14" and 16" in Space Gray and Dark Silver
         </p>
         <div className="flex items-center justify-center gap-5 mt-5">
           <div className="flex-between bg-neutral-800 rounded-full px-6 py-3 gap-4">
@@ -35,10 +39,10 @@ const ProductViewer = () => {
           {/* the size selectors */}
           <div className="small-medium flex-between bg-neutral-800 rounded-full px-6 py-2.5 gap-2">
             <div
-              onClick={() => setScale("0.06")}
+              onClick={() => setScale(0.06)}
               className={clsx(
                 "size-8 rounded-full cursor-pointer flex-center",
-                scale === "0.06"
+                scale === 0.06
                   ? "bg-white text-black"
                   : "bg-transparent text-white"
               )}
@@ -46,10 +50,10 @@ const ProductViewer = () => {
               <p>14"</p>
             </div>
             <div
-              onClick={() => setScale("0.08")}
+              onClick={() => setScale(0.08)}
               className={clsx(
                 "size-8 rounded-full cursor-pointer  flex-center",
-                scale === "0.08"
+                scale === 0.08
                   ? "bg-white text-black"
                   : "bg-transparent text-white"
               )}
@@ -64,11 +68,12 @@ const ProductViewer = () => {
         className="w-full! h-[80vh]! lg:h-dvh! relative z-40"
         camera={{ position: [0, 2, 5], fov: 50, near: 0.1, far: 100 }}
       >
-        <Box
-          position={[0, 0, 0]}
-          scale={10 * scale}
-          material-color={color}
-        ></Box>
+        <StudioLights />
+
+        <ModelSwitcher
+          scale={isMobile ? scale - 0.03 : scale}
+          isMobile={isMobile}
+        />
       </Canvas>
     </section>
   );

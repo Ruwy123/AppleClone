@@ -55,7 +55,9 @@ body {
   color: var(--color-dark-100);
   font-family: var(--font-semibold);
 }
-
+.col-center {
+  @apply flex flex-col items-center justify-center;
+}
 @layer utilities {
   .flex-center {
     display: flex;
