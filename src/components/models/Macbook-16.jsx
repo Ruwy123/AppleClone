@@ -127,7 +127,6 @@ export default function MacbookModel16(props) {
       </mesh>
       <mesh
         geometry={nodes.Object_127.geometry}
-        material={materials.ZCDwChwkbBfITSW}
         rotation={[Math.PI / 2, 0, 0]}
       />
     </group>
