@@ -190,6 +190,16 @@ body {
     opacity: 0;
     padding: 0 1.25rem;
   }
+  #f-canvas {
+    width: 100% !important;
+    height: 100vh !important; /* dvh ≈ 100vh for most cases */
+    position: relative;
+    z-index: 40;
+  }
+  #features {
+    padding-top: 5rem;
+    position: relative;
+  }
 
   /* .col-center {
     @apply flex flex-col items-center justify-center;
