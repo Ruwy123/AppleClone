@@ -106,6 +106,7 @@ const Features = () => {
       <div className="absolute inset-0">
         {features.map((feature, index) => (
           <div
+            key={index}
             className={clsx(
               "max-w-xs absolute",
               `box${index + 1}`,
