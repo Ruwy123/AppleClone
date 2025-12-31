@@ -65,10 +65,10 @@ const ShowCase = () => {
         />
 
         {/* Mask Layer */}
-        <div className="mask absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+        <div className="mask absolute inset-0 z-10 flex items-center justify-center pointer-events-none ">
           <img
             ref={maskRef}
-            className="w-full h-full object-cover"
+            className="h-full object-cover "
             src="/mask-logo.svg"
             alt="mask"
           />

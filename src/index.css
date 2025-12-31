@@ -71,7 +71,7 @@ body {
     justify-content: space-between;
   }
   #performance {
-    width: 100dvw;
+    width: 100vw;
     height: 100%;
     overflow: hidden;
     padding-top: 5rem; /* pt-20 */
